@@ -17,8 +17,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install openai requests beautifulsoup4 python-wordpress-xmlrpc
+      - name: 依存関係をインストールする
+  run: pip install openai requests beautifulsoup4 python-wordpress-xmlrpc
+
 
       - name: Run script
         env:
