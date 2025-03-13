@@ -18,7 +18,8 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install openai requests beautifulsoup4 python-wordpress-xmlrpc
+        run: pip install openai requests beautifulsoup4 
+python-wordpress-xmlrpc
 
       - name: Run script
         env:
@@ -27,3 +28,4 @@ jobs:
           WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python auto_blog.py
+
