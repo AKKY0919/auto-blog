@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '0 12 * * *'
     - cron: '0 21 * * *'
+  workflow_dispatch:  # 手動実行もできるようにする
 
 jobs:
   run_script:
@@ -18,16 +19,13 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-      - run: pip install openai requests beautifulsoup4 python-wordpress-xmlrpc
+        run: pip install openai requests beautifulsoup4 python-wordpress-xmlrpc
 
-
-      - name: 実行スクリプト
+      - name: Run script
         env:
           WP_URL: ${{ secrets.WP_URL }}
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
           WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python auto_blog.py
-
-
 
